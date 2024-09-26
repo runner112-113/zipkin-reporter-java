@@ -31,7 +31,9 @@ final class ByteBoundedQueue<S> extends BoundedQueue<S> {
   final int maxSize;
   final int maxBytes;
 
+  // Span
   final S[] elements;
+  // Span byte-size
   final int[] sizesInBytes;
   int count;
   int sizeInBytes;

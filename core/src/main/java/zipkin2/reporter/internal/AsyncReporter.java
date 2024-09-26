@@ -227,6 +227,7 @@ public abstract class AsyncReporter<S> extends Component
       metrics.incrementSpans(1);
 
       // enqueue now and filter our when we drain
+      // 加入到缓冲区 异步上报
       if (closed.get() || !pending.offer(next)) {
         metrics.incrementSpansDropped(1);
       }

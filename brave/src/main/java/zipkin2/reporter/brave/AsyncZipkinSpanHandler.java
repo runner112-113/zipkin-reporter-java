@@ -210,6 +210,7 @@ public final class AsyncZipkinSpanHandler extends SpanHandler implements Closeab
   }
 
   @Override public boolean end(TraceContext context, MutableSpan span, Cause cause) {
+    // 判断是否需要上报
     if (!alwaysReportSpans && !Boolean.TRUE.equals(context.sampled())) return true;
     spanReporter.report(span);
     return true;
